@@ -1,3 +1,3 @@
-import { greeting } from "./greeting.js";
+import { getWeatherData } from "./modules/weather";
 
-console.log(greeting);
+getWeatherData('spain').then( response => { console.log(response)})
