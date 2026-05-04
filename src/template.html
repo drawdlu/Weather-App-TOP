@@ -11,13 +11,53 @@
         <form action="#">
           <div class="field">
             <label for="location">Location: </label>
-            <input type="text" name="location" id="location">
+            <input type="text" name="location" id="location" />
           </div>
           <div class="submit">
             <button id="search">Check</button>
           </div>
         </form>
+        <div class="unit-temp">
+          <select name="unit" id="unit-select">
+            <option value="metric" selected>°C</option>
+            <option value="us">°F</option>
+          </select>
+        </div>
       </div>
     </header>
+    <main style="visibility: hidden">
+      <div class="highlight">
+        <div class="main-location-data">
+          <div class="address">
+            Location: <span></span>
+          </div>
+          <div class="timezone">
+            Timezone: <span></span>
+          </div>
+        </div>
+        <div class="main-weather-data">
+          <div class="temp-data">
+            <div class="icon"></div>
+            <div class="temp"></div>
+          </div>
+          <div class="date-conditions">
+            <div class="date"></div>
+            <div class="conditions"></div>
+          </div>
+          <div class="additional-weather-data">
+            <div class="data">
+              <div class="precipitation">Precipitation: <span></span></div>
+            </div>
+            <div class="data">
+              <div class="humidity">Humidity: <span></span></div>
+            </div>
+            <div class="data">
+              <div class="wind">Wind: <span></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="compilation"></div>
+    </main>
   </body>
 </html>

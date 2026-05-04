@@ -20,20 +20,20 @@ async function getWeatherData(location, unit) {
 export default async function getRequiredWeatherData(locationName) {
   const [metric, us] = await Promise.all([
     getWeatherData(locationName, "metric"),
-    getWeatherData(locationName, "us")
-  ])
+    getWeatherData(locationName, "us"),
+  ]);
 
   return {
-    metric: formatWeatherData(metric),
-    us: formatWeatherData(us)
+    metric: formatWeatherData(metric, "metric"),
+    us: formatWeatherData(us, "us"),
   };
-
 }
 
-function formatWeatherData(data) {
+function formatWeatherData(data, unit) {
   const days = formatDailyData(data.days);
 
   return {
+    unit: unit,
     address: data.address,
     timezone: data.timezone,
     days: days,
@@ -48,6 +48,6 @@ function formatDailyData(days) {
     windspeed: day.windspeed,
     temp: day.temp,
     humidity: day.humidity,
-    precipitation: day.precip,
+    precipitation: day.precipprob,
   }));
 }
