@@ -1,18 +1,22 @@
 import { capitalize } from "./helper";
-import { format } from 'date-fns/format';
+import { format } from "date-fns/format";
 
 const symbols = {
   metric: {
     degrees: "°C",
-    speed: "km/h"
-  }, 
+    speed: "km/h",
+  },
   us: {
     degrees: "°F",
-    speed: "mph"
-  }
-}
+    speed: "mph",
+  },
+};
 
-export default function displayWeather(dataRaw) {
+let savedData = undefined;
+let currentDisplayDay = undefined;
+
+export function displayWeather(dataRaw) {
+  savedData = dataRaw;
   const data = dataRaw[getUnit()];
 
   displayDataHighlight(data);
@@ -30,15 +34,40 @@ function displayDataHighlight(data) {
 }
 
 function displayMainWeatherData(day, unit) {
+  currentDisplayDay = day;
   displayTemp(day.temp, unit);
   displayDate(day.date);
   displayConditions(day.conditions);
-  displayAdditionalWeatherData(day.precipitation, day.humidity, day.windspeed, unit);
+  displayAdditionalWeatherData(
+    day.precipitation,
+    day.humidity,
+    day.windspeed,
+    unit,
+  );
+}
+
+function getDayIndex(date, unit) {
+  let index = 0;
+  const days = savedData[unit].days;
+
+  for (const day of days) {
+    if (day.date === date) {
+      break;
+    } else {
+      ++index;
+    }
+  }
+
+  return index;
 }
 
 function displayAdditionalWeatherData(precipitation, humidity, wind, unit) {
-  const precipitationSpan = document.querySelector(".main-weather-data .precipitation span");
-  const humiditySpan = document.querySelector(".main-weather-data .humidity span");
+  const precipitationSpan = document.querySelector(
+    ".main-weather-data .precipitation span",
+  );
+  const humiditySpan = document.querySelector(
+    ".main-weather-data .humidity span",
+  );
   const windSpan = document.querySelector(".main-weather-data .wind span");
 
   precipitationSpan.textContent = precipitation + "%";
@@ -46,8 +75,10 @@ function displayAdditionalWeatherData(precipitation, humidity, wind, unit) {
   windSpan.textContent = wind + symbols[unit].speed;
 }
 
-function displayConditions (conditions) {
-  const conditionsDiv = document.querySelector(".main-weather-data .conditions");
+function displayConditions(conditions) {
+  const conditionsDiv = document.querySelector(
+    ".main-weather-data .conditions",
+  );
   conditionsDiv.textContent = conditions;
 }
 
@@ -64,8 +95,12 @@ function displayTemp(temperature, unit) {
 }
 
 function displayAddressAndTimezone(address, timezone) {
-  const addressSpan = document.querySelector(".main-location-data .address span");
-  const timezoneSpan = document.querySelector(".main-location-data .timezone span");
+  const addressSpan = document.querySelector(
+    ".main-location-data .address span",
+  );
+  const timezoneSpan = document.querySelector(
+    ".main-location-data .timezone span",
+  );
 
   addressSpan.textContent = capitalize(address);
   timezoneSpan.textContent = timezone;
@@ -74,4 +109,26 @@ function displayAddressAndTimezone(address, timezone) {
 function makeMainVisible() {
   const main = document.querySelector("main");
   main.style.visibility = "visible";
+}
+
+export function listenToUnitChange() {
+  const unitSelect = document.getElementById("unit-select");
+
+  unitSelect.addEventListener("change", updatePageData);
+}
+
+function updatePageData() {
+  if (savedData) {
+    const unit = getUnit();
+    const dayIndex = getDayIndex(currentDisplayDay.date, unit);
+    const day = savedData[unit].days[dayIndex];
+
+    displayTemp(day.temp, unit);
+    displayAdditionalWeatherData(
+      day.precipitation,
+      day.humidity,
+      day.windspeed,
+      unit,
+    );
+  }
 }

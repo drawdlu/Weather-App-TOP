@@ -1,5 +1,5 @@
 import getWeatherData from "./weather";
-import displayWeather from "./displayData";
+import { displayWeather } from "./displayData";
 
 function getWeatherInformation(event) {
   event.preventDefault();
