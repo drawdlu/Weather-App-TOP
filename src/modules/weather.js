@@ -17,21 +17,17 @@ async function getWeatherData(location, unit) {
   return response.json();
 }
 
-export async function getRequiredWeatherData(locationName) {
-  try {
-    const [metric, us] = await Promise.all([
-      getWeatherData(locationName, "metric"),
-      getWeatherData(locationName, "us")
-    ])
+export default async function getRequiredWeatherData(locationName) {
+  const [metric, us] = await Promise.all([
+    getWeatherData(locationName, "metric"),
+    getWeatherData(locationName, "us")
+  ])
 
-    return {
-      metric: formatWeatherData(metric),
-      us: formatWeatherData(us)
-    };
-  } catch (err) {
-    alert("Location not found");
-    throw err;
-  }
+  return {
+    metric: formatWeatherData(metric),
+    us: formatWeatherData(us)
+  };
+
 }
 
 function formatWeatherData(data) {
