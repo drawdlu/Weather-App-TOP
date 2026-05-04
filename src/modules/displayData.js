@@ -1,16 +1,8 @@
-import { capitalize } from "./helper";
+import { capitalize, getUnit, symbols } from "./helper";
 import { format } from "date-fns/format";
+import displayAdditionalDays from "./displayWeekData";
 
-const symbols = {
-  metric: {
-    degrees: "°C",
-    speed: "km/h",
-  },
-  us: {
-    degrees: "°F",
-    speed: "mph",
-  },
-};
+
 
 let savedData = undefined;
 let currentDisplayDay = undefined;
@@ -20,12 +12,8 @@ export function displayWeather(dataRaw) {
   const data = dataRaw[getUnit()];
 
   displayDataHighlight(data);
+  displayAdditionalDays(data.days);
   makeMainVisible();
-}
-
-function getUnit() {
-  const unitSelect = document.getElementById("unit-select");
-  return unitSelect.value;
 }
 
 function displayDataHighlight(data) {
@@ -120,8 +108,7 @@ export function listenToUnitChange() {
 function updatePageData() {
   if (savedData) {
     const unit = getUnit();
-    const dayIndex = getDayIndex(currentDisplayDay.date, unit);
-    const day = savedData[unit].days[dayIndex];
+    const day = getDayDataFromDate(currentDisplayDay.date, unit);
 
     displayTemp(day.temp, unit);
     displayAdditionalWeatherData(
@@ -131,4 +118,10 @@ function updatePageData() {
       unit,
     );
   }
+}
+
+function getDayDataFromDate(date, unit) {
+  const dayIndex = getDayIndex(currentDisplayDay.date, unit);
+
+  return savedData[unit].days[dayIndex];
 }

@@ -3,10 +3,11 @@ async function getWeatherData(location, unit) {
   const url =
     "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/" +
     location +
+    "/next7days" +
     "?key=" +
     key +
     "&unitGroup=" +
-    unit;
+    unit ;
 
   const response = await fetch(url);
 
