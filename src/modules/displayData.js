@@ -1,10 +1,10 @@
 import { capitalize, getUnit, symbols } from "./helper";
 import { format } from "date-fns/format";
-import displayAdditionalDays from "./displayWeekData";
+import { displayAdditionalDays, updateSnippetsTemps } from "./displayWeekData";
 
 
 
-let savedData = undefined;
+export let savedData = undefined;
 let currentDisplayDay = undefined;
 
 export function displayWeather(dataRaw) {
@@ -117,6 +117,7 @@ function updatePageData() {
       day.windspeed,
       unit,
     );
+    updateSnippetsTemps(unit);
   }
 }
 

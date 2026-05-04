@@ -1,8 +1,10 @@
 import { format } from "date-fns/format"
 import { getUnit, symbols } from "./helper";
+import { savedData } from "./displayData";
 
-export default function displayAdditionalDays(days) {
+export function displayAdditionalDays(days) {
   const compilationDiv = document.querySelector(".compilation");
+  compilationDiv.textContent = "";
   const template = document.getElementById("weather-snippet");
   const unit = getUnit();
 
@@ -41,4 +43,15 @@ function addTempToSnippet(temp, snippetDiv, tempSymbol) {
   const tempDiv = snippetDiv.querySelector(".day-temp");
 
   tempDiv.textContent = temp + tempSymbol;
+}
+
+export function updateSnippetsTemps(unit) {
+  const days = savedData[unit].days;
+  const tempSymbol = symbols[unit].degrees;
+  const snippetDivs = document.querySelectorAll(".day-weather-snippet");
+
+  snippetDivs.forEach( (div, index) => {
+    const temp = days[index].temp;
+    addTempToSnippet(temp, div, tempSymbol);
+  })
 }
