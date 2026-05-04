@@ -1,6 +1,6 @@
 import { format } from "date-fns/format"
 import { getUnit, symbols } from "./helper";
-import { savedData } from "./displayData";
+import { savedData, updateHighlight } from "./displayData";
 
 export function displayAdditionalDays(days) {
   const compilationDiv = document.querySelector(".compilation");
@@ -21,8 +21,19 @@ function addOneDaySnippet(data, div, template, unit) {
   addDateToSnippet(data.date, snippetDiv);
   addTempToSnippet(data.temp, snippetDiv, tempSymbol);
 
-
   div.append(snippetDiv);
+  addDateDataToSnippet(data.date, div);
+  addClickListener(div);
+}
+
+function addClickListener(div) {
+  const snippetDiv = div.lastElementChild;
+
+  snippetDiv.addEventListener( "click", updateHighlight);
+}
+
+function addDateDataToSnippet(date, div) {
+  div.lastElementChild.dataset.date = date;
 }
 
 function addDayToSnippet(date, snippetDiv) {

@@ -122,7 +122,16 @@ function updatePageData() {
 }
 
 function getDayDataFromDate(date, unit) {
-  const dayIndex = getDayIndex(currentDisplayDay.date, unit);
+  const dayIndex = getDayIndex(date, unit);
 
   return savedData[unit].days[dayIndex];
+}
+
+export function updateHighlight(event) {
+  const snippetDiv = event.target.closest(".day-weather-snippet");
+  const date = snippetDiv.dataset.date;
+  const unit = getUnit();
+  const day = getDayDataFromDate(date, unit);
+  
+  displayMainWeatherData(day, unit)
 }
