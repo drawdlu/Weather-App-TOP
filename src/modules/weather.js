@@ -7,7 +7,7 @@ async function getWeatherData(location, unit) {
     "?key=" +
     key +
     "&unitGroup=" +
-    unit ;
+    unit;
 
   const response = await fetch(url);
 

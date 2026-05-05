@@ -3,25 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Weather App</title>
   </head>
   <body>
     <header>
-      <div class="form">
-        <form action="#">
-          <div class="field">
-            <label for="location">Location: </label>
-            <input type="text" name="location" id="location" />
+      <div class="title-form">
+        <div class="app-name">Weather App</div>
+        <div class="search-form">
+          <div class="form">
+            <form action="#">
+              <div class="field">
+                <label for="location">Location: </label>
+                <input type="text" name="location" id="location" />
+              </div>
+              <div class="submit">
+                <button id="search">Search</button>
+              </div>
+            </form>
           </div>
-          <div class="submit">
-            <button id="search">Check</button>
+          <div class="unit-temp">
+            <select name="unit" id="unit-select">
+              <option value="metric" selected>°C</option>
+              <option value="us">°F</option>
+            </select>
           </div>
-        </form>
-        <div class="unit-temp">
-          <select name="unit" id="unit-select">
-            <option value="metric" selected>°C</option>
-            <option value="us">°F</option>
-          </select>
         </div>
       </div>
     </header>
@@ -63,5 +68,8 @@
         </div>
       </template>
     </main>
+    <footer>
+      Photo by <a href="https://unsplash.com/@pericakalimerica?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Pero Kalimero</a> on <a href="https://unsplash.com/photos/nimbus-clouds-and-blue-calm-sky-9BJRGlqoIUk?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+    </footer>
   </body>
 </html>

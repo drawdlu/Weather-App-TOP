@@ -1,9 +1,10 @@
 @font-face {
   font-family: "google-sans-flex";
-  src: url("../fonts/GoogleSansFlex-VariableFont_GRAD\,ROND\,opsz\,slnt\,wdth\,wght.woff2") format("woff2");
+  src: url("../fonts/GoogleSansFlex-VariableFont_GRAD\,ROND\,opsz\,slnt\,wdth\,wght.woff2")
+    format("woff2");
 }
 
-@font-face{
+@font-face {
   font-family: "playfair-display";
   src: url("../fonts/PlayfairDisplay-VariableFont_wght.woff2") format("woff2");
 }
@@ -12,4 +13,3 @@
   font-family: "roboto";
   src: url("../fonts/Roboto-VariableFont_wdth\,wght.woff2") format(woff2);
 }
-

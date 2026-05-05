@@ -1,0 +1,83 @@
+header {
+  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  padding-bottom: 2rem;
+}
+
+header .title-form {
+  background-image: url("../images/pero-kalimero-9BJRGlqoIUk-unsplash.jpg");
+  background-position: center;
+  padding: 2rem 3rem;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+
+header .app-name {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+header .search-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2ch;
+}
+
+header form {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2ch;
+}
+
+header form .field {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1ch;
+}
+
+header form input {
+  font-size: 1.5ch;
+  padding: 0.3ch;
+  border-radius: 5px;
+  border: solid black 2px;
+  background: none;
+}
+
+header button {
+  font-size: 1.5ch;
+  background-color: antiquewhite;
+  border-radius: 5px;
+  border: none;
+  padding: .5rem 1rem;
+  transition-duration: .5s;
+}
+
+header button:hover {
+  cursor: pointer;
+  transition-duration: .3s;
+  transform: scale(1.1);
+}
+
+header .unit-temp select {
+  font-size: 1.5ch;
+  border-radius: 5px;
+  border: solid black 2px;
+  padding: .25rem .5rem;
+  background-color: #EA5252;
+}
+
+header .unit-temp select:hover {
+  cursor: pointer;
+}

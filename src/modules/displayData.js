@@ -2,8 +2,6 @@ import { capitalize, getUnit, symbols } from "./helper";
 import { format } from "date-fns/format";
 import { displayAdditionalDays, updateSnippetsTemps } from "./displayWeekData";
 
-
-
 export let savedData = undefined;
 let currentDisplayDay = undefined;
 
@@ -132,6 +130,6 @@ export function updateHighlight(event) {
   const date = snippetDiv.dataset.date;
   const unit = getUnit();
   const day = getDayDataFromDate(date, unit);
-  
-  displayMainWeatherData(day, unit)
+
+  displayMainWeatherData(day, unit);
 }

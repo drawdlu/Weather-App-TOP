@@ -1,4 +1,4 @@
-import { format } from "date-fns/format"
+import { format } from "date-fns/format";
 import { getUnit, symbols } from "./helper";
 import { savedData, updateHighlight } from "./displayData";
 
@@ -8,7 +8,7 @@ export function displayAdditionalDays(days) {
   const template = document.getElementById("weather-snippet");
   const unit = getUnit();
 
-  for ( const day of days ) {
+  for (const day of days) {
     addOneDaySnippet(day, compilationDiv, template, unit);
   }
 }
@@ -29,7 +29,7 @@ function addOneDaySnippet(data, div, template, unit) {
 function addClickListener(div) {
   const snippetDiv = div.lastElementChild;
 
-  snippetDiv.addEventListener( "click", updateHighlight);
+  snippetDiv.addEventListener("click", updateHighlight);
 }
 
 function addDateDataToSnippet(date, div) {
@@ -61,8 +61,8 @@ export function updateSnippetsTemps(unit) {
   const tempSymbol = symbols[unit].degrees;
   const snippetDivs = document.querySelectorAll(".day-weather-snippet");
 
-  snippetDivs.forEach( (div, index) => {
+  snippetDivs.forEach((div, index) => {
     const temp = days[index].temp;
     addTempToSnippet(temp, div, tempSymbol);
-  })
+  });
 }

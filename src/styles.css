@@ -1,7 +1,16 @@
 @import url(./styles/fonts.css);
+@import url(./styles/header.css);
 
 :root {
-  font-family: "google-sans-flex", "playfair-display", "roboto", Arial, Helvetica, sans-serif, system-ui, -apple-system;
+  font-family:
+    "google-sans-flex",
+    "playfair-display",
+    "roboto",
+    Arial,
+    Helvetica,
+    sans-serif,
+    system-ui,
+    -apple-system;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
