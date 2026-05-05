@@ -1,6 +1,10 @@
 import "./styles.css";
-import listenToSearch from "./modules/search";
+import { listenToSearch, clearInputOnReload } from "./modules/search";
 import { listenToUnitChange } from "./modules/displayData";
 
+clearInputOnReload();
 listenToSearch();
 listenToUnitChange();
+
+
+

@@ -20,7 +20,24 @@ function getWeatherInformation(event) {
     });
 }
 
-export default function listenToSearch() {
+export function listenToSearch() {
   const searchButton = document.getElementById("search");
   searchButton.addEventListener("click", getWeatherInformation);
+}
+
+export function clearInputOnReload() {
+  const entries = performance.getEntriesByType('navigation');
+
+  if (entries.length > 0) {
+      const navigationType = entries[0].type;
+
+      if (navigationType === 'reload') {
+          clearSearchInput();
+      }
+  }
+}
+
+function clearSearchInput() {
+  const inputNode = document.querySelector("header form #location");
+  inputNode.value = "";
 }
