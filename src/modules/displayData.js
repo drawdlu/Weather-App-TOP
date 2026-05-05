@@ -6,6 +6,7 @@ import {
   addActiveClassToFirstDay,
 } from "./displayWeekData";
 import { addIconToImg } from "./icons";
+import { hideLoader } from "./loader";
 
 export let savedData = undefined;
 let currentDisplayDay = undefined;
@@ -14,6 +15,7 @@ export function displayWeather(dataRaw) {
   savedData = dataRaw;
   const data = dataRaw[getUnit()];
 
+  hideLoader();
   displayDataHighlight(data);
   displayAdditionalDays(data.days);
   addActiveClassToFirstDay();

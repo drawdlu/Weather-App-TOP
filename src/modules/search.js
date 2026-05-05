@@ -1,7 +1,10 @@
 import getWeatherData from "./weather";
 import { displayWeather } from "./displayData";
+import { displayLoader, hideLoaderAndData, displayNoData, hideNoData } from "./loader";
 
 function getWeatherInformation(event) {
+  displayLoader();
+  hideNoData();
   event.preventDefault();
   const locationInput = document.getElementById("location");
   const location = locationInput.value;
@@ -11,7 +14,8 @@ function getWeatherInformation(event) {
       displayWeather(data);
     })
     .catch((err) => {
-      alert("Location not found");
+      hideLoaderAndData();
+      displayNoData();
       console.error(err.message);
     });
 }

@@ -2,6 +2,7 @@
 @import url(./styles/header.css);
 @import url(./styles/highlight.css);
 @import url(./styles/snippets.css);
+@import url(./styles/loading.css);
 
 :root {
   font-family:
