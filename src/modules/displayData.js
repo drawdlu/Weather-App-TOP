@@ -1,6 +1,6 @@
 import { capitalize, getUnit, symbols } from "./helper";
 import { format } from "date-fns/format";
-import { displayAdditionalDays, updateSnippetsTemps } from "./displayWeekData";
+import { displayAdditionalDays, updateSnippetsTemps, addActiveClassToFirstDay } from "./displayWeekData";
 import { addIconToImg } from "./icons";
 
 export let savedData = undefined;
@@ -12,6 +12,7 @@ export function displayWeather(dataRaw) {
 
   displayDataHighlight(data);
   displayAdditionalDays(data.days);
+  addActiveClassToFirstDay();
   makeMainVisible();
 }
 

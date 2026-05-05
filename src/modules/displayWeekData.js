@@ -38,6 +38,9 @@ function addClickListener(div) {
   const snippetDiv = div.lastElementChild;
 
   snippetDiv.addEventListener("click", updateHighlight);
+  snippetDiv.addEventListener("click", () => {
+    addActiveClass(snippetDiv);
+  })
 }
 
 function addDateDataToSnippet(date, div) {
@@ -73,4 +76,26 @@ export function updateSnippetsTemps(unit) {
     const temp = days[index].temp;
     addTempToSnippet(temp, div, tempSymbol);
   });
+}
+
+let activeDiv = undefined;
+
+export function addActiveClassToFirstDay() {
+  const firstDayDiv = document.querySelector(".compilation .day-weather-snippet:nth-child(1)");
+
+  addActiveClass(firstDayDiv);
+
+}
+
+function addActiveClass(div) {
+  removeActiveFromLastActive()
+  activeDiv = div;
+  
+  activeDiv.classList.add("active");
+}
+
+function removeActiveFromLastActive() {
+  if ( activeDiv ) {
+    activeDiv.classList.remove("active");
+  }
 }
