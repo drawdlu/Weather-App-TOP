@@ -1,6 +1,7 @@
 import getWeatherData from "./weather";
 import { displayWeather } from "./displayData";
 import { displayLoader, hideLoaderAndData, displayNoData, hideNoData } from "./loader";
+import { saveWeatherData } from "./storage";
 
 function getWeatherInformation(event) {
   displayLoader();
@@ -11,6 +12,7 @@ function getWeatherInformation(event) {
 
   getWeatherData(location)
     .then((data) => {
+      saveWeatherData(data);
       displayWeather(data);
     })
     .catch((err) => {
