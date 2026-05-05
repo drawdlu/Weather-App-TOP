@@ -2,13 +2,17 @@ import getWeatherData from "./weather";
 import { displayWeather } from "./displayData";
 import { displayLoader, hideLoaderAndData, displayNoData, hideNoData } from "./loader";
 import { saveWeatherData } from "./storage";
+import { pageReloaded } from "./helper";
 
-function getWeatherInformation(event) {
-  displayLoader();
-  hideNoData();
+function getWeatherFromInput(event) {
   event.preventDefault();
   const locationInput = document.getElementById("location");
-  const location = locationInput.value;
+  getWeatherInformation(locationInput.value);
+}
+
+export function getWeatherInformation(location) {
+  displayLoader();
+  hideNoData();
 
   getWeatherData(location)
     .then((data) => {
@@ -24,18 +28,12 @@ function getWeatherInformation(event) {
 
 export function listenToSearch() {
   const searchButton = document.getElementById("search");
-  searchButton.addEventListener("click", getWeatherInformation);
+  searchButton.addEventListener("click", getWeatherFromInput);
 }
 
 export function clearInputOnReload() {
-  const entries = performance.getEntriesByType('navigation');
-
-  if (entries.length > 0) {
-      const navigationType = entries[0].type;
-
-      if (navigationType === 'reload') {
-          clearSearchInput();
-      }
+  if (pageReloaded()) {
+    clearSearchInput();
   }
 }
 

@@ -14,7 +14,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack serve --open --config webpack.dev.js",
+    "start": "webpack serve --server-type https --open --config webpack.dev.js",
     "build": "git checkout gh-pages && git merge main --no-edit && webpack --config webpack.prod.js",
     "deploy": "git add dist -f && git commit -m \"Deployment commit\" && git subtree push --prefix dist origin gh-pages && git checkout main"
   },
