@@ -60,13 +60,13 @@ header button {
   background-color: antiquewhite;
   border-radius: 5px;
   border: none;
-  padding: .5rem 1rem;
-  transition-duration: .5s;
+  padding: 0.5rem 1rem;
+  transition-duration: 0.5s;
 }
 
 header button:hover {
   cursor: pointer;
-  transition-duration: .3s;
+  transition-duration: 0.3s;
   transform: scale(1.1);
 }
 
@@ -74,8 +74,8 @@ header .unit-temp select {
   font-size: 1.5ch;
   border-radius: 5px;
   border: solid black 2px;
-  padding: .25rem .5rem;
-  background-color: #EA5252;
+  padding: 0.25rem 0.5rem;
+  background-color: #ea5252;
 }
 
 header .unit-temp select:hover {

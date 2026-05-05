@@ -1,0 +1,44 @@
+.highlight {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3ch;
+}
+
+.highlight .main-location-data {
+  display: flex;
+  gap: 3ch;
+  font-size: 2rem;
+}
+
+.highlight .main-weather-data {
+  display: grid;
+  row-gap: 2ch;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  background-color: antiquewhite;
+  border-radius: 15px;
+  padding: 3rem;
+  min-width: 45ch;
+}
+
+.highlight .main-weather-data .temp-data .temp {
+  font-size: 2.5rem;
+}
+
+.highlight .main-weather-data .date-conditions {
+  display: flex;
+  font-size: 2ch;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1ch;
+}
+
+.highlight .main-weather-data .additional-weather-data {
+  display: flex;
+  flex-direction: column;
+  font-size: 2ch;
+  gap: 1ch;
+}
