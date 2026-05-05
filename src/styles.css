@@ -1,6 +1,7 @@
 @import url(./styles/fonts.css);
 @import url(./styles/header.css);
 @import url(./styles/highlight.css);
+@import url(./styles/snippets.css);
 
 :root {
   font-family:

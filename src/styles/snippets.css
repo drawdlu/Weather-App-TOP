@@ -1,0 +1,25 @@
+.compilation { 
+  display: flex;
+  margin: 3.5rem 1rem;;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+.compilation .day-weather-snippet {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.compilation .day-weather-snippet:hover {
+  cursor: pointer;
+}
+
+.compilation .day-weather-snippet .day-icon img {
+  width: auto;
+  height: 35px;
+}

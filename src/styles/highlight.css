@@ -45,6 +45,7 @@
   justify-content: center;
   align-items: center;
   gap: 1ch;
+  grid-row: span 2;
 }
 
 .highlight .main-weather-data .additional-weather-data {
