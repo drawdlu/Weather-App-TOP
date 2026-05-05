@@ -1,6 +1,7 @@
 import { capitalize, getUnit, symbols } from "./helper";
 import { format } from "date-fns/format";
 import { displayAdditionalDays, updateSnippetsTemps } from "./displayWeekData";
+import { displayMainWeatherIcon } from "./icons";
 
 export let savedData = undefined;
 let currentDisplayDay = undefined;
@@ -22,6 +23,7 @@ function displayDataHighlight(data) {
 function displayMainWeatherData(day, unit) {
   currentDisplayDay = day;
   displayTemp(day.temp, unit);
+  displayMainWeatherIcon(day.icon);
   displayDate(day.date);
   displayConditions(day.conditions);
   displayAdditionalWeatherData(

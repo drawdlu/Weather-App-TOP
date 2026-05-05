@@ -23,8 +23,19 @@
   min-width: 45ch;
 }
 
+.highlight .main-weather-data .temp-data {
+  display: flex;
+  align-items: center;
+  gap: 1ch;
+}
+
 .highlight .main-weather-data .temp-data .temp {
-  font-size: 2.5rem;
+  font-size: 3rem;
+}
+
+.highlight .main-weather-data .temp-data img {
+  height: auto; 
+  width: 60px;
 }
 
 .highlight .main-weather-data .date-conditions {
