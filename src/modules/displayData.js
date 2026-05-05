@@ -8,7 +8,7 @@ import {
 import { addIconToImg } from "./icons";
 import { hideLoader } from "./loader";
 
-export let savedData = undefined;
+let savedData = undefined;
 let currentDisplayDay = undefined;
 
 export function displayWeather(dataRaw) {

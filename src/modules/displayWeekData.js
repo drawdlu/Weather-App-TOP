@@ -1,6 +1,6 @@
 import { format } from "date-fns/format";
 import { getUnit, symbols } from "./helper";
-import { savedData, updateHighlight } from "./displayData";
+import { updateHighlight } from "./displayData";
 import { addIconToImg } from "./icons";
 
 export function displayAdditionalDays(days) {
@@ -68,7 +68,9 @@ function addTempToSnippet(temp, snippetDiv, tempSymbol) {
 }
 
 export function updateSnippetsTemps(unit) {
-  const days = savedData[unit].days;
+  const localData = localStorage.getItem("weatherData");
+  const weatherData = JSON.parse(localData);
+  const days = weatherData[unit].days;
   const tempSymbol = symbols[unit].degrees;
   const snippetDivs = document.querySelectorAll(".day-weather-snippet");
 
