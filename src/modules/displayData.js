@@ -1,6 +1,10 @@
 import { capitalize, getUnit, symbols } from "./helper";
 import { format } from "date-fns/format";
-import { displayAdditionalDays, updateSnippetsTemps, addActiveClassToFirstDay } from "./displayWeekData";
+import {
+  displayAdditionalDays,
+  updateSnippetsTemps,
+  addActiveClassToFirstDay,
+} from "./displayWeekData";
 import { addIconToImg } from "./icons";
 
 export let savedData = undefined;
@@ -38,7 +42,7 @@ function displayMainWeatherData(day, unit) {
 function displayMainWeatherIcon(iconName) {
   const mainIconImg = document.querySelector(".main-weather-data .icon img");
 
-  addIconToImg(iconName, mainIconImg)
+  addIconToImg(iconName, mainIconImg);
 }
 
 function getDayIndex(date, unit) {
