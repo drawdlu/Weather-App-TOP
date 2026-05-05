@@ -1,6 +1,11 @@
 import getWeatherData from "./weather";
 import { displayWeather } from "./displayData";
-import { displayLoader, hideLoaderAndData, displayNoData, hideNoData } from "./loader";
+import {
+  displayLoader,
+  hideLoaderAndData,
+  displayNoData,
+  hideNoData,
+} from "./loader";
 import { saveWeatherData } from "./storage";
 import { pageReloaded } from "./helper";
 

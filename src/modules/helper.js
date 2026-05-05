@@ -19,13 +19,13 @@ export function getUnit() {
 }
 
 export function pageReloaded() {
-  const entries = performance.getEntriesByType('navigation');
+  const entries = performance.getEntriesByType("navigation");
 
   if (entries.length > 0) {
-      const navigationType = entries[0].type;
+    const navigationType = entries[0].type;
 
-      if (navigationType === 'reload') {
-        return true;
-      }
+    if (navigationType === "reload") {
+      return true;
+    }
   }
 }

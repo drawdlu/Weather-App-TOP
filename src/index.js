@@ -7,6 +7,3 @@ clearInputOnReload();
 loadWeatherData();
 listenToSearch();
 listenToUnitChange();
-
-
-
